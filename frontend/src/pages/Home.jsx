@@ -1,19 +1,37 @@
+// src/pages/Home.jsx
 import React from "react";
+import ProductCard from "../components/ProductCard";
 
 const Home = () => {
+  // Simulăm o listă de produse
+  const products = [
+    {
+      id: 1,
+      name: "Vintage Jacket",
+      price: 45,
+      image: "https://via.placeholder.com/150",
+    },
+    {
+      id: 2,
+      name: "Leather Boots",
+      price: 60,
+      image: "https://via.placeholder.com/150",
+    },
+    {
+      id: 3,
+      name: "Retro T-shirt",
+      price: 20,
+      image: "https://via.placeholder.com/150",
+    },
+  ];
+
   return (
     <main className="container mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-4">Welcome to Thrift Place</h2>
-      <p className="mb-8">Buy and sell second-hand items locally and sustainably.</p>
+      <h2 className="text-3xl font-bold mb-4">Available Products</h2>
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {/* Placeholder for items - these will be dynamic */}
-        <div className="bg-white shadow-md rounded-lg p-4">
-          <img src="https://via.placeholder.com/150" alt="Product" className="w-full h-48 object-cover rounded-t-lg" />
-          <div className="p-2">
-            <h3 className="font-bold text-xl">Product Name</h3>
-            <p className="text-gray-700">$Price</p>
-          </div>
-        </div>
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </section>
     </main>
   );
